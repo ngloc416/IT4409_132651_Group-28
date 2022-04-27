@@ -1,0 +1,37 @@
+h1{
+color: red;
+}
+.background{
+	background: url(https://anhdep.tv/attachments/dd5d8b8e6f192fd55d554cbc2edddb4f-jpeg.9863/);
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+.bkr{
+background-color: #b5dfdf;}
+.div{
+ max-width: 720px;
+    padding: 32px;
+    margin: 36px auto 0 auto;
+    background-color: #b5dfdf;
+}
+.div2{
+	 max-width: 720px;
+    padding: 32px;
+    margin: 36px auto 0 auto;
+    background-color: #fff;
+
+}
+.div3{
+background-color: #fff;
+display: flex;
+justify-content: space-between;
+}
+
+.list{
+list-style: none;
+text-align: center;
+}
+.table{
+margin-right: auto;
+margin-left: auto;
+}
