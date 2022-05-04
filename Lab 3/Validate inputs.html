@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Form</title>
+</head>
+<body>
+    <h1 style="margin-left: 95px;">Đăng ký</h1>
+    <br>
+    <form action="#" method="post" name="myForm" onsubmit = "return validate()">
+        <table>
+            <tr>
+                <td>Tài khoản</td>
+                <td><input type="text" name="txtUsername" required id=""></td>
+            </tr>
+            <tr>
+                <td>Mật khẩu</td>
+                <td><input type="password" name="txtPassword" required id=""></td>
+            </tr>
+            <tr>
+                <td>Nhập lại mật khẩu</td>
+                <td><input type="password" name="txtRePassword" required id=""></td>
+            </tr>
+            <tr>
+                <td>Họ và tên</td>
+                <td><input type="text" name="txtHoten" required id=""></td>
+            </tr>
+            <tr>
+                <td>Ngày sinh</td>
+                <td><input type="date" name="txtDate" required id=""></td>
+            </tr>
+            <tr>
+                <td>Điện thoại</td>
+                <td><input type="tel" name="txtTel" required id=""></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="email" name="txtEmail" required id=""></td>
+            </tr>
+        </table>
+        <br>
+        <input type="submit" value="Đăng ký" style="margin-left: 120px;">
+    </form>
+
+    <script type="text/javascript">
+        function validate() {
+            if (document.myForm.txtPassword.value.length < 6) {
+                alert("Mật khẩu phải tối thiểu 6 kí tự!");
+                return false;
+            }
+            if (document.myForm.txtPassword.value != document.myForm.txtRePassword.value) {
+                alert("Mật khẩu nhập lại sai!");
+                document.myForm.txtRePassword.focus() ;
+                return false;
+            }           
+            if ((isNaN(document.myForm.txtTel.value)) || (document.myForm.txtTel.value.length != 10)) {
+                alert("Định dạng số điện thoại sai!");
+                document.myForm.txtRePassword.focus() ;
+                return false;
+            }
+            alert("Đăng ký thành công!");
+            return true;
+        }
+    </script> 
+</body>
+</html>
