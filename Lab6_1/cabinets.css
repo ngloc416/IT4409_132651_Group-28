@@ -1,0 +1,20 @@
+h1{
+text-align: center;
+}
+p{
+margin: 0.25in;
+border: 0.25in solid black;
+padding: 0.25in;
+background: url(https://png.pngtree.com/thumb_back/fw800/background/20190223/ourmid/pngtree-vintage-kraft-paper-background-design-backgroundkraft-paperkraft-paper-image_73262.jpg);
+
+}
+body{
+background: url(https://hinhgoc.net/upload/img/H255.jpg?quality=100&width=1200&height=1200);}
+.banner{
+background: url(https://s3.envato.com/files/256210826/back_octprela-8.jpg);
+background-size: cover;
+width: auto;
+height: auto;
+font-size: 50pt;
+font-family: Arial Rounded MT Bold;
+}
