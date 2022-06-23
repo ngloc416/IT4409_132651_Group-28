@@ -1,0 +1,21 @@
+- XML Application:
+	+XUL (XML User Interface Language) là một ngôn ngữ đánh dấu giao diện người dùng được phát triển bởi Mozilla Project.
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	Tổ chức xác định tiêu chuẩn: Mozilla Foundation
+
+	+EPUB (Electronic Publication) là định dạng file của sách, tạp chí, tranh truyện...điện tử. Với file EPUB, bạn có thể dễ dàng đọc được nội dung của các ấn phẩm này trên điện thoại hoặc máy tính của mình mà không cần mua trực tiếp bên ngoài.
+	xmlns="http://www.idpf.org/2007/ops"
+	Tổ chức xác định tiêu chuẩn: IDPF 
+
+	+Android SDK là một software development kit bao gồm một bộ công cụ phát triển toàn diện. Chúng bao gồm trình gỡ lỗi, thư viện, trình giả lập thiết bị cầm tay dựa trên QEMU, tài liệu, code mẫu, và các hướng dẫn.
+	xmlns="http://schemas.android.com/apk/res-auto"
+	Tổ chức xác định tiêu chuẩn:Google
+
+	+XBRL (eXtensible Business Reporting Language) là một khuôn khổ toàn cầu và có sẵn miễn phí để trao đổi thông tin kinh doanh. XBRL cho phép thể hiện ý nghĩa ngữ nghĩa thường được yêu cầu trong báo cáo kinh doanh. Ngôn ngữ dựa trên XML và sử dụng cú pháp XML và các công nghệ XML liên quan như Lược đồ XML, XLink, XPath và Không gian tên.
+	xmlns="http://www.xbrl.org/Specification/xbrl-xml/PWD-2016-01-13/xbrl-xml-PWD-2016-01-13.html"
+	Tổ chức xác định tiêu chuẩn: XBRL International
+	
+-Explain how to use some characteristic element and attributes:
+	+ <circle> của SVG: Để vẽ hình tròn trên tọa độ 2 chiều hiển thị trên web
+	+ <polygon> của SVG: Để vẽ đa giác trên tọa độ 2 chiều hiển thị trên web
+	+ <msqrt> của MathML: Để hiển thị căn bậc hai trên web
