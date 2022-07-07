@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../../public/css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-------------------------header------------------------------->
+    <header>
+      <div class="header-container">
+        <div class="logo">
+          <a href=""><img src="../../../public/img/logo.jpg" alt="logo" /></a>
+        </div>
+        <div class="menu">
+          <li><a href="">TRANG CHỦ</a></li>
+          <li><a href="">SẢN PHẨM</a></li>
+          <li><a href="">VỀ CHÚNG TÔI</a></li>
+        </div>
+        <div class="icon">
+          <li>
+            <a href=""
+              ><img
+                src="../../../public/img/shopping-bag.png"
+                alt="shopping-bag"
+            /></a>
+          </li>
+          <p>(5)</p>
+        </div>
+      </div>
+    </header>
+    <!-------------------------slider------------------------------->
+    <br />
+    <div class="slider">
+      <div class="slider-container">
+        <img src="../../../public/img/slide-1.jpg" alt="" />
+        <img src="../../../public/img/slide-2.jpg" alt="" />
+        <img src="../../../public/img/slide-3.jpg" alt="" />
+      </div>
+      <div class="dot-container">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+    </div>
+    <!-------------------------new arrival-------------------------->
+    <div class="product">
+      <h2>NEW ARRIVAL</h2>
+      <div class="product-content">
+        <div class="product-item">
+          <a href=""
+            ><img src="../../../public/img/dau-tay.jpg" alt="Sản phẩm 1"
+          /></a>
+          <a href=""><p class="name">Dâu tây (0,5kg)</p></a>
+          <p class="price">200.000đ / 0,5 kg</p>
+        </div>
+        <div class="product-item">
+          <a href=""
+            ><img src="../../../public/img/dau-tay.jpg" alt="Sản phẩm 1"
+          /></a>
+          <a href=""><p class="name">Dâu tây (0,5kg)</p></a>
+          <p class="price">200.000đ / 0,5 kg</p>
+        </div>
+        <div class="product-item">
+          <a href=""
+            ><img src="../../../public/img/dau-tay.jpg" alt="Sản phẩm 1"
+          /></a>
+          <a href=""><p class="name">Dâu tây (0,5kg)</p></a>
+          <p class="price">200.000đ / 0,5 kg</p>
+        </div>
+      </div>
+    </div>
+    <!-------------------------best seller-------------------------->
+    <div class="product">
+      <h2>BEST SELLER</h2>
+      <div class="product-content">
+        <div class="product-item">
+          <a href=""
+            ><img src="../../../public/img/dau-tay.jpg" alt="Sản phẩm 1"
+          /></a>
+          <a href=""><p class="name">Dâu tây (0,5kg)</p></a>
+          <p class="price">200.000đ / 0,5 kg</p>
+        </div>
+        <div class="product-item">
+          <a href=""
+            ><img src="../../../public/img/dau-tay.jpg" alt="Sản phẩm 1"
+          /></a>
+          <a href=""><p class="name">Dâu tây (0,5kg)</p></a>
+          <p class="price">180.000đ / 0,5 kg</p>
+          <p class="old-price">200.000đ / 0,5 kg</p>
+        </div>
+        <div class="product-item">
+          <a href=""
+            ><img src="../../../public/img/dau-tay.jpg" alt="Sản phẩm 1"
+          /></a>
+          <a href=""><p class="name">Dâu tây (0,5kg)</p></a>
+          <p class="price">200.000đ / 0,5 kg</p>
+        </div>
+      </div>
+    </div>
+    <!-------------------------tip---------------------------------->
+    <div class="tip">
+      <h2>Lợi ích khi ăn hoa quả</h2>
+      <br />
+      <p>
+        " Ăn hoa quả là một phần của chế độ ăn uống lành mạnh. Ăn các loại thực
+        phẩm như trái cây có hàm lượng calo thấp hơn thay vì một số thực phẩm
+        khác có hàm lượng calo cao hơn có thể hữu ích trong việc giúp giảm lượng
+        calo tiêu thụ, từ đó giúp người dùng kiểm soát cân nặng. Ăn một chế độ
+        ăn nhiều rau và trái cây có thể làm giảm nguy cơ mắc bệnh tim, bao gồm
+        đau tim và đột quỵ. Ăn một chế độ ăn nhiều rau và trái cây có thể bảo vệ
+        cơ thể chống lại một số loại ung thư. Trái cây có thể giúp tăng lượng
+        chất xơ và kali, là những chất dinh dưỡng quan trọng mà nhiều người dùng
+        không có đủ trong chế độ ăn uống của họ. "
+      </p>
+    </div>
+    <!-------------------------footer------------------------------->
+    <footer>
+      <p class="info">
+        Địa chỉ: Số 50 Thái Thịnh, Đống Đa, Hà Nội <br />
+        Điện thoại: 0123456789 <br />
+        Email: freshfruit6789@gmail.com
+      </p>
+
+      <div class="contact">
+        <a href=""
+          ><img src="../../../public/img/facebook.png" alt="facebook"
+        /></a>
+        <a href=""
+          ><img src="../../../public/img/instagram.png" alt="instagram"
+        /></a>
+        <a href=""
+          ><img src="../../../public/img/youtube.png" alt="youtube"
+        /></a>
+      </div>
+    </footer>
+  </body>
+  <script>
+    const imgPosition = document.querySelectorAll(' .slider-container img');
+    const imgContainer = document.querySelector('.slider-container');
+    const dotItem = document.querySelectorAll('.dot');
+    let imgNumber = imgPosition.length;
+    let index = 0;
+
+    function imgSlide(index) {
+      imgContainer.style.left = '-' + index * 100 + '%';
+      const dotActive = document.querySelector('.active');
+      dotActive.classList.remove('active');
+      dotItem[index].classList.add('active');
+    }
+
+    imgPosition.forEach(function (image, index) {
+      image.style.left = index * 100 + '%';
+      dotItem[index].addEventListener('click', function () {
+        imgSlide(index);
+      });
+    });
+
+    function autoSlide() {
+      index++;
+      if (index >= imgNumber) index = 0;
+      imgSlide(index);
+    }
+    setInterval(autoSlide, 4000);
+  </script>
+</html>
