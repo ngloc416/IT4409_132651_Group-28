@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<list>
+    <student>
+        <studentId>20194096</studentId>
+        <name>Nguyen Dinh Loc</name>
+        <dateOfBirth>1/1/2001</dateOfBirth>
+        <class>KHMT-02</class>
+        <phone>000000000</phone>
+    </student>
+
+    <student>
+        <studentId>20194069</studentId>
+        <name>Nguyen Duc Thang</name>
+        <dateOfBirth>1/1/2001</dateOfBirth>
+        <class>KHMT-02</class>
+        <phone>1111111111</phone>
+    </student>
+</list>

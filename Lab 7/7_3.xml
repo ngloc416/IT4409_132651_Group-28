@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Placemark>
+    <name>Bach Mai, Ha Noi</name>
+    <description>My home</description>
+    <Point>
+      <coordinates>20.999909, 105.851715</coordinates>
+    </Point>
+  </Placemark>
+</kml>
