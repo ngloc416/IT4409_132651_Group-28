@@ -32,6 +32,10 @@ a {
   color: black;
 }
 
+.list-logo {
+  display: none;
+}
+
 .logo {
   flex: 1;
 }
@@ -51,8 +55,20 @@ a {
 }
 
 .menu li a {
-  font-size: 19px;
+  font-size: 20px;
   color: rgb(11, 163, 62);
+}
+
+.menu-2 {
+  display: none;
+}
+
+.selected {
+  text-decoration: underline;
+}
+
+.selected img {
+  border-bottom: 1px solid rgb(11, 163, 62);
 }
 
 .icon {
@@ -118,55 +134,55 @@ a {
   background-color: black;
 }
 
-.product {
-  padding: 50px 0 35px 0;
-  border-bottom: 1px solid rgb(11, 163, 62);
+.list-title {
   width: 80%;
   margin: auto;
-}
-
-.product h2 {
   text-align: center;
   font-size: 26px;
   color: rgb(11, 163, 62);
+  padding: 50px 0 0 0;
 }
 
-.product-content {
-  padding-top: 40px;
+.product-container {
+  width: 80%;
+  margin: auto;
+  padding: 50px 0 0 0;
   display: flex;
-
+  flex-wrap: wrap;
   justify-content: space-between;
+  border-bottom: 1px solid rgb(11, 163, 62);
 }
 
-.product-content .product-item {
+.product-container .product-item {
   width: 30%;
   text-align: center;
+  padding-bottom: 50px;
 }
 
-.product-content .product-item img {
+.product-container .product-item img {
   width: 100%;
 }
 
-.product-content .product-item a img:hover {
+.product-container .product-item a img:hover {
   width: 98%;
 }
 
-.product-content .product-item .name {
+.product-container .product-item .name {
   padding-top: 10px;
-  font-size: 16px;
+  font-size: 18px;
 }
 
-.product-content .product-item a .name:hover {
+.product-container .product-item a .name:hover {
   color: rgb(11, 163, 62);
 }
 
-.product-content .product-item .price {
+.product-container .product-item .price {
   padding-top: 10px;
   font-weight: bold;
   font-size: 17px;
 }
 
-.product-content .product-item .old-price {
+.product-container .product-item .old-price {
   font-size: 15px;
   text-decoration: line-through;
 }
@@ -228,7 +244,7 @@ footer .contact :last-child img {
   color: rgb(11, 163, 62);
 }
 
-.picture {
+.about-us-picture {
   width: 80%;
   margin: auto;
   margin-top: 100px;
@@ -236,7 +252,7 @@ footer .contact :last-child img {
   padding-top: 38%;
 }
 
-.picture img {
+.about-us-picture img {
   position: absolute;
   padding-bottom: 30px;
   width: 100%;
@@ -274,21 +290,337 @@ footer .contact :last-child img {
   padding: 0 20px;
 }
 
-.about-us-container .about-us-content .intro {
+.about-us-container .about-us-content .about-us-intro {
   padding: 30px 20px;
   line-height: 26px;
   border: 0.5px solid rgb(11, 163, 62);
 }
 
-.about-us-container .about-us-content .intro h3 {
+.about-us-container .about-us-content .about-us-intro h3 {
   text-align: center;
   font-size: 25px;
   padding-bottom: 5px;
 }
 
-.about-us-container .about-us-content .intro h4 {
+.about-us-container .about-us-content .about-us-intro h4 {
   text-align: center;
   padding-bottom: 10px;
   font-size: 18px;
   color: rgb(11, 163, 62);
+}
+
+.product-content {
+  width: 80%;
+  margin: auto;
+  padding: 180px 0 70px 0;
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgb(11, 163, 62);
+}
+
+.product-content-left {
+  width: 50%;
+}
+
+.product-content-left-big-img {
+  width: 100%;
+  padding-right: 20px;
+}
+
+.product-content-left-big-img img {
+  width: 100%;
+}
+
+.product-content-left-small-img {
+  padding-top: 20px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product-content-left-small-img img {
+  width: 33%;
+  padding-right: 16px;
+  cursor: pointer;
+}
+
+.product-content-right {
+  width: 50%;
+  padding-left: 80px;
+}
+
+.product-content-right .product-content-right-product-name {
+  width: fit-content;
+  font-size: 26px;
+  color: rgb(11, 163, 62);
+}
+
+.product-content-right .product-content-right-product-price {
+  padding-top: 25px;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.product-content-right .product-content-right-product-old-price {
+  padding-top: 5px;
+  font-size: 18px;
+  text-decoration: line-through;
+}
+
+.product-content-right .product-content-right-product-status {
+  padding-top: 30px;
+  font-size: 22px;
+}
+
+.product-content-right .product-content-right-quantity {
+  padding-top: 30px;
+  font-size: 22px;
+}
+
+.product-content-right .product-content-right-quantity input {
+  margin-top: 5px;
+  width: 50px;
+  font-size: 18px;
+}
+
+.product-content-right .product-content-right-button {
+  padding-top: 30px;
+}
+
+.product-content-right .product-content-right-button button {
+  font-size: 22px;
+  color: rgb(11, 163, 62);
+  background-color: white;
+  padding: 5px;
+  border-color: rgb(11, 163, 62);
+}
+
+.product-content-right .product-content-right-button button:hover {
+  color: white;
+  background-color: rgb(11, 163, 62);
+  border-color: black;
+  cursor: pointer;
+}
+
+.cart-container {
+  padding-top: 180px;
+  padding-bottom: 100px;
+  width: 80%;
+  margin: auto;
+  display: flex;
+}
+
+.cart-content-left {
+  width: 70%;
+  border-right: 1px solid rgb(11, 163, 62);
+  padding-right: 50px;
+  text-align: center;
+}
+
+.cart-content-left table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cart-content-left table th {
+  padding-bottom: 30px;
+  color: rgb(11, 163, 62);
+  border-bottom: 2px solid rgb(11, 163, 62);
+  font-size: 18px;
+}
+
+.cart-content-left table td {
+  padding: 35px 0;
+  border-bottom: 1px solid rgb(11, 163, 62);
+  font-size: 18px;
+}
+
+.cart-content-left table td .cart-content-left-product-old-price {
+  padding-top: 5px;
+  text-decoration: line-through;
+}
+
+.cart-content-left table td input {
+  width: 50px;
+}
+
+.cart-content-left table td button {
+  background: white;
+  padding: 3px;
+  border-width: 1px;
+}
+
+.cart-content-left table td button:hover {
+  color: white;
+  background-color: rgb(11, 163, 62);
+  border-color: black;
+  cursor: pointer;
+}
+
+.cart-content-right {
+  width: 30%;
+  padding-left: 30px;
+}
+
+.cart-content-right th {
+  padding-bottom: 26px;
+  color: rgb(11, 163, 62);
+  border-bottom: 3.5px solid rgb(11, 163, 62);
+  font-size: 18px;
+}
+
+.cart-content-right table {
+  width: 100%;
+  font-size: 18px;
+}
+
+.cart-content-right table td {
+  padding-top: 15px;
+}
+
+.cart-content-right table tr:last-of-type {
+  font-weight: bold;
+}
+
+.cart-content-right-button {
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart-content-right-button button {
+  background-color: white;
+  padding: 7px;
+  border-width: 1px;
+  font-size: 15px;
+}
+
+.cart-content-right-button button:hover {
+  color: white;
+  background-color: rgb(11, 163, 62);
+  border-color: black;
+  cursor: pointer;
+}
+
+.pay-container {
+  padding-top: 180px;
+  padding-bottom: 100px;
+  width: 80%;
+  margin: auto;
+  display: flex;
+}
+
+.pay-content-left {
+  width: 65%;
+  border-right: 1px solid rgb(11, 163, 62);
+  padding-right: 50px;
+}
+
+.pay-content-left p {
+  text-align: center;
+  font-size: 18px;
+  color: rgb(11, 163, 62);
+  padding-bottom: 29px;
+  border-bottom: 3px solid rgb(11, 163, 62);
+  font-weight: bold;
+}
+
+.pay-content-left .pay-content-left-input {
+  padding-top: 23px;
+  font-size: 18px;
+  margin-left: 15%;
+}
+
+.pay-content-left .pay-content-left-input input {
+  width: 500px;
+  height: 30px;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.pay-content-left .pay-content-left-input select {
+  width: 150px;
+  height: 30px;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.pay-content-left-button {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-bottom: 3px solid rgb(11, 163, 62);
+  text-align: center;
+}
+
+.pay-content-left-button button {
+  background-color: white;
+  padding: 7px;
+  border-width: 1px;
+  font-size: 18px;
+}
+
+.pay-content-left-button button:hover {
+  color: white;
+  background-color: rgb(11, 163, 62);
+  border-color: black;
+  cursor: pointer;
+}
+
+.pay-content-right {
+  width: 35%;
+  padding-left: 30px;
+}
+
+.pay-content-right th {
+  padding-bottom: 26px;
+  color: rgb(11, 163, 62);
+  border-bottom: 3.5px solid rgb(11, 163, 62);
+  font-size: 18px;
+}
+
+.pay-content-right table {
+  width: 100%;
+  font-size: 18px;
+}
+
+.pay-content-right table td {
+  padding-top: 20px;
+}
+
+.pay-content-right table tr:last-of-type {
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 900px) {
+  .menu {
+    display: none;
+  }
+
+  .menu-2 {
+    margin-top: 100px;
+    position: fixed;
+    z-index: 1;
+    display: flex;
+    justify-content: space-around;
+    background: white;
+    width: 100%;
+    font-size: 15px;
+    height: 40px;
+    transform-style: flat;
+    border-bottom: 0.2px solid rgb(11, 163, 62);
+    align-items: center;
+  }
+
+  .menu-2 li a {
+    color: rgb(11, 163, 62);
+    font-weight: bold;
+  }
+
+  .slider-container {
+    margin-top: 140px;
+  }
+
+  .tip {
+    width: 70%;
+  }
 }

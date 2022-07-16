@@ -18,11 +18,11 @@
         </div>
         <div class="menu">
           <li><a href="">TRANG CHỦ</a></li>
-          <li class="selected"><a href="">SẢN PHẨM</a></li>
+          <li><a href="">SẢN PHẨM</a></li>
           <li><a href="">VỀ CHÚNG TÔI</a></li>
         </div>
         <div class="icon">
-          <li>
+          <li class="selected">
             <a href=""
               ><img
                 src="../../../public/img/shopping-bag.png"
@@ -35,41 +35,58 @@
     </header>
     <div class="menu-2">
       <li><a href="">TRANG CHỦ</a></li>
-      <li class="selected"><a href="">SẢN PHẨM</a></li>
+      <li><a href="">SẢN PHẨM</a></li>
       <li><a href="">VỀ CHÚNG TÔI</a></li>
     </div>
-    <!-------------------------product content---------------------->
-    <div class="product-content">
-      <div class="product-content-left">
-        <div class="product-content-left-big-img">
-          <img src="../../../public/img/dau-tay.jpg" alt="" />
+    <!-------------------------pay--------------------------------->
+    <div class="pay-container">
+      <div class="pay-content-left">
+        <p>VUI LÒNG NHẬP THÔNG TIN GIAO HÀNG</p>
+        <div class="pay-content-left-input">
+          <label for="">Họ và tên:</label> <br />
+          <input type="text" required />
         </div>
-        <div class="product-content-left-small-img">
-          <img src="../../../public/img/dau-tay.jpg" alt="" />
-          <img src="../../../public/img/about-us-2.jpg" alt="" />
-          <img src="../../../public/img/dau-tay.jpg" alt="" />
+        <div class="pay-content-left-input">
+          <label for="">Số điện thoại:</label><br />
+          <input type="text" required />
+        </div>
+        <div class="pay-content-left-input">
+          <label for="">Địa chỉ:</label><br />
+          <input type="text" required />
+        </div>
+        <div class="pay-content-left-input">
+          <label for="">Email:</label><br />
+          <input type="text" />
+        </div>
+        <div class="pay-content-left-input">
+          <label for="">Ghi chú:</label><br />
+          <input type="text" />
+        </div>
+        <div class="pay-content-left-input">
+          <label for="">Hình thức thanh toán:</label><br />
+          <select name="" id="">
+            <option value="cash">Tiền mặt</option>
+            <option value="transfer">Chuyển khoản</option>
+          </select>
+        </div>
+        <div class="pay-content-left-button">
+          <button>ĐẶT HÀNG</button>
         </div>
       </div>
-      <div class="product-content-right">
-        <div class="product-content-right-product-name">
-          <h2>Dâu tây</h2>
-        </div>
-        <div class="product-content-right-product-price">
-          <p>180.000đ / 0,5 kg</p>
-        </div>
-        <div class="product-content-right-product-old-price">
-          <p>200.000đ / 0,5 kg</p>
-        </div>
-        <div class="product-content-right-product-status">
-          <p>Tình trạng: Còn 55 sản phẩm</p>
-        </div>
-        <div class="product-content-right-quantity">
-          <p>Số lượng:</p>
-          <input type="number" min="1" value="1" />
-        </div>
-        <div class="product-content-right-button">
-          <button>Thêm vào giỏ hàng</button>
-        </div>
+      <div class="pay-content-right">
+        <table>
+          <tr>
+            <th colspan="2">TỔNG TIỀN GIỎ HÀNG</th>
+          </tr>
+          <tr>
+            <td>TỔNG SẢN PHẨM</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>THÀNH TIỀN</td>
+            <td>180.000đ</td>
+          </tr>
+        </table>
       </div>
     </div>
     <!-------------------------tip---------------------------------->
@@ -108,6 +125,5 @@
         /></a>
       </div>
     </footer>
-    <script src="../../../public/js/productScript.js"></script>
   </body>
 </html>
