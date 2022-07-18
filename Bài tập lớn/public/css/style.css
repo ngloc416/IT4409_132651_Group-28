@@ -23,6 +23,11 @@ header .header-container {
   margin: auto;
 }
 
+header .header-container .menu ul {
+  width: 100%;
+  display: flex;
+}
+
 li {
   list-style: none;
 }
@@ -350,6 +355,7 @@ footer .contact :last-child img {
 }
 
 .product-content-right .product-content-right-product-name {
+  width: -moz-fit-content;
   width: fit-content;
   font-size: 26px;
   color: rgb(11, 163, 62);
@@ -440,10 +446,6 @@ footer .contact :last-child img {
   text-decoration: line-through;
 }
 
-.cart-content-left table td input {
-  width: 50px;
-}
-
 .cart-content-left table td button {
   background: white;
   padding: 3px;
@@ -465,7 +467,7 @@ footer .contact :last-child img {
 .cart-content-right th {
   padding-bottom: 26px;
   color: rgb(11, 163, 62);
-  border-bottom: 3.5px solid rgb(11, 163, 62);
+  border-bottom: 2px solid rgb(11, 163, 62);
   font-size: 18px;
 }
 
@@ -516,12 +518,12 @@ footer .contact :last-child img {
   padding-right: 50px;
 }
 
-.pay-content-left p {
+.pay-content-left h3 {
   text-align: center;
   font-size: 18px;
   color: rgb(11, 163, 62);
   padding-bottom: 29px;
-  border-bottom: 3px solid rgb(11, 163, 62);
+  border-bottom: 2px solid rgb(11, 163, 62);
   font-weight: bold;
 }
 
@@ -548,7 +550,7 @@ footer .contact :last-child img {
 .pay-content-left-button {
   padding-top: 30px;
   padding-bottom: 30px;
-  border-bottom: 3px solid rgb(11, 163, 62);
+  border-bottom: 1px solid rgb(11, 163, 62);
   text-align: center;
 }
 
@@ -566,6 +568,14 @@ footer .contact :last-child img {
   cursor: pointer;
 }
 
+.pay-content-left-input h4 {
+  padding-top: 20px;
+}
+
+.pay-content-left-input p {
+  padding-top: 8px;
+}
+
 .pay-content-right {
   width: 35%;
   padding-left: 30px;
@@ -574,7 +584,7 @@ footer .contact :last-child img {
 .pay-content-right th {
   padding-bottom: 26px;
   color: rgb(11, 163, 62);
-  border-bottom: 3.5px solid rgb(11, 163, 62);
+  border-bottom: 2px solid rgb(11, 163, 62);
   font-size: 18px;
 }
 
@@ -601,7 +611,6 @@ footer .contact :last-child img {
     position: fixed;
     z-index: 1;
     display: flex;
-    justify-content: space-around;
     background: white;
     width: 100%;
     font-size: 15px;
@@ -609,6 +618,15 @@ footer .contact :last-child img {
     transform-style: flat;
     border-bottom: 0.2px solid rgb(11, 163, 62);
     align-items: center;
+  }
+
+  .menu-2 ul {
+    margin: auto;
+    display: flex;
+  }
+
+  .menu-2 ul li {
+    padding: 0 6px;
   }
 
   .menu-2 li a {
