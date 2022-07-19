@@ -1,3 +1,5 @@
+<?php
+session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,7 +33,7 @@
           </li>
         </ul>
         <?php
-        include_once("../controllers/cartController.php");
+        include_once '../controllers/cartController.php';
         $controller = new cartController();
         $bill = $controller->showBill();
         echo '<p>(' . $bill[0] . ')</p>';

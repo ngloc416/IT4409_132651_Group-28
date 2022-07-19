@@ -1,3 +1,5 @@
+<?php
+session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,7 +33,7 @@
           </li>
         </ul>
         <?php
-        include_once("../controllers/cartController.php");
+        include_once '../controllers/cartController.php';
         $controller = new cartController();
         $bill = $controller->showBill();
         echo '<p>(' . $bill[0] . ')</p>';
@@ -50,13 +52,15 @@
   <div class="product-content">
     <?php
     $pid = $_GET['id'];
-    include_once "../controllers/productController.php";
+    include_once '../controllers/productController.php';
     $productController = new productController();
     $product = $productController->getDetailProduct($pid);
 
     echo '    <div class="product-content-left">
       <div class="product-content-left-big-img">
-        <img src="../../../' . $product->image[0] . '" alt="" />
+        <img src="../../../' .
+      $product->image[0] .
+      '" alt="" />
       </div>';
     if (count($product->image) > 1) {
       echo '<div class="product-content-left-small-img">';
@@ -68,33 +72,52 @@
     echo '</div>
     <div class="product-content-right">
       <div class="product-content-right-product-name">
-        <h2>' . $product->name . '</h2>
+        <h2>' .
+      $product->name .
+      '</h2>
       </div>
       <div class="product-content-right-product-price">
         <p>';
-    if ($product->newprice == NULL) echo $product->price;
-    else echo $product->newprice;
-    echo 'đ / ' . $product->unit . ' kg</p>
+    if ($product->newprice == null) {
+      echo $product->price;
+    } else {
+      echo $product->newprice;
+    }
+    echo 'đ / ' .
+      $product->unit .
+      ' kg</p>
       </div>
       <div class="product-content-right-product-old-price">
         <p>';
-    if ($product->newprice == NULL) echo '*';
-    else echo $product->price . 'đ / ' . $product->unit . ' kg';
+    if ($product->newprice == null) {
+      echo '*';
+    } else {
+      echo $product->price . 'đ / ' . $product->unit . ' kg';
+    }
     echo '</p>
       </div>
       <div class="product-content-right-product-status">
-        <p>Tình trạng: Còn ' . $product->amount . ' sản phẩm</p>
+        <p>Tình trạng: Còn ' .
+      $product->amount .
+      ' sản phẩm</p>
       </div>
+      <form method="post">
       <div class="product-content-right-quantity">
         <label for="qty">Số lượng:</label>
-        <input id="qty" type="number" min="1" value="1" />
+        <input id="qty" type="number" min="1" value="1" name="qty"/>
       </div>
       <div class="product-content-right-button">
         <button>Thêm vào giỏ hàng</button>
       </div>
+      </form>
     </div>';
+    if (!empty($_POST)) {
+      $tmpProduct = $productController->getTmpProduct($product);
+      $productController->addTmpProduct($tmpProduct);
+    }
     ?>
   </div>
+
   <!-------------------------tip---------------------------------->
   <div class="tip">
     <h2>Lợi ích khi ăn hoa quả</h2>

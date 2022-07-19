@@ -1,3 +1,5 @@
+<?php
+session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,7 +33,7 @@
           </li>
         </ul>
         <?php
-        include_once("../controllers/cartController.php");
+        include_once '../controllers/cartController.php';
         $controller = new cartController();
         $bill = $controller->showBill();
         echo '<p>(' . $bill[0] . ')</p>';
@@ -51,23 +53,43 @@
   <div class="product-container">
 
     <?php
-    include_once("../controllers/listProductController.php");
+    include_once '../controllers/listProductController.php';
     $listProductController = new listProductController();
     $list = $listProductController->getProductList();
 
     for ($i = 0; $i < count($list); $i++) {
       echo '<div class="product-item">
-            <a href="productView.php?id=' . $list[$i]->id . '"><img src="../../../' . $list[$i]->image[0] . '" alt="Sản phẩm ' . $list[$i]->id . '" /></a>
-            <a href="productView.php?id=' . $list[$i]->id . '">
-            <p class="name">' . $list[$i]->name . ' (' . $list[$i]->unit . 'kg)</p>
+            <a href="productView.php?id=' .
+        $list[$i]->id .
+        '"><img src="../../../' .
+        $list[$i]->image[0] .
+        '" alt="Sản phẩm ' .
+        $list[$i]->id .
+        '" /></a>
+            <a href="productView.php?id=' .
+        $list[$i]->id .
+        '">
+            <p class="name">' .
+        $list[$i]->name .
+        ' (' .
+        $list[$i]->unit .
+        'kg)</p>
             </a>
             <p class="price">';
-      if ($list[$i]->newprice == NULL) echo $list[$i]->price;
-      else echo $list[$i]->newprice;
-      echo 'đ / ' . $list[$i]->unit . ' kg</p>
+      if ($list[$i]->newprice == null) {
+        echo $list[$i]->price;
+      } else {
+        echo $list[$i]->newprice;
+      }
+      echo 'đ / ' .
+        $list[$i]->unit .
+        ' kg</p>
             <p class="old-price">';
-      if ($list[$i]->newprice == NULL) echo '*';
-      else echo $list[$i]->price . 'đ / ' . $list[$i]->unit . ' kg';
+      if ($list[$i]->newprice == null) {
+        echo '*';
+      } else {
+        echo $list[$i]->price . 'đ / ' . $list[$i]->unit . ' kg';
+      }
       echo '</p>
             </div>';
     }

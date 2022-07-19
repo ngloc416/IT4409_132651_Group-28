@@ -1,3 +1,5 @@
+<?php
+session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,12 +31,15 @@
           </li>
         </ul>
         <?php
-        include_once("../controllers/cartController.php");
-        $controller = new cartController();
-        $bill = $controller->showBill();
+        include_once '../controllers/cartController.php';
+        $cartController = new cartController();
+        $bill = $cartController->showBill();
         echo '
-          <p>(' . $bill[0] . ')</p>
-          '; ?>
+          <p>(' .
+          $bill[0] .
+          ')</p>
+          ';
+        ?>
       </div>
     </div>
   </header>
@@ -49,32 +54,32 @@
   <div class="pay-container">
     <div class="pay-content-left">
       <h3>VUI LÒNG NHẬP THÔNG TIN GIAO HÀNG</h3>
-      <form action="listProductView.php">
+      <form method="post">
         <div class="pay-content-left-input">
-          <label for="name">Họ và tên:</label> <br />
-          <input id="name" type="text" required />
+          <label for="customername">Họ và tên:</label> <br />
+          <input id="customername" type="text" required name="customername" />
         </div>
         <div class="pay-content-left-input">
           <label for="phone">Số điện thoại:</label><br />
-          <input id="phone" type="text" required />
+          <input id="phone" type="text" required name="phone" />
         </div>
         <div class="pay-content-left-input">
           <label for="address">Địa chỉ:</label><br />
-          <input id="address" type="text" required />
+          <input id="address" type="text" required name="address" />
         </div>
         <div class="pay-content-left-input">
           <label for="email">Email:</label><br />
-          <input id="email" type="text" />
+          <input id="email" type="text" name="email" />
         </div>
         <div class="pay-content-left-input">
-          <label for="note">Ghi chú:</label><br />
-          <input id="note" type="text" />
+          <label for="ghichu">Ghi chú:</label><br />
+          <input id="ghichu" type="text" name="ghichu" />
         </div>
         <div class="pay-content-left-input">
-          <label for="payment">Hình thức thanh toán:</label><br />
-          <select name="" id="payment">
-            <option value="cash">Tiền mặt</option>
-            <option value="transfer">Chuyển khoản</option>
+          <label for="hinhthucthanhtoan">Hình thức thanh toán:</label><br />
+          <select id="hinhthucthanhtoan" name="hinhthucthanhtoan">
+            <option>Tiền mặt</option>
+            <option>Chuyển khoản</option>
           </select>
           <h4>Thông tin chuyển khoản:</h4>
           <p> Ngân hàng Quân đội (MB)</p>
@@ -84,23 +89,37 @@
           <button onclick="return confirm('Bạn muốn đặt hàng?')">ĐẶT HÀNG</button>
         </div>
       </form>
+      <?php
+      include_once '../controllers/payController.php';
+      $payController = new payController();
+      $customer = $payController->getCustomer();
+      $list = $cartController->showList();
+      if (count($list) == 0) {
+        echo '<script>alert("Vui lòng thêm sản phẩm vào giỏ hàng!"); window.location.href = "listProductView.php";</script>';
+      } elseif (!empty($_POST)) {
+        $payController->addCustomer($customer);
+        $payController->addOrderProduct($customer, $bill[1], $list);
+        $payController->deleteTemporaryProduct();
+      }
+      ?>
     </div>
     <div class="pay-content-right">
       <table>
         <tr>
           <th colspan="2">TỔNG TIỀN GIỎ HÀNG</th>
         </tr>
-        <?php
-        echo
-        '<tr>
+        <?php echo '<tr>
           <td>TỔNG SẢN PHẨM</td>
-          <td>' . $bill[0] . '</td>
+          <td>' .
+          $bill[0] .
+          '</td>
         </tr>
         <tr>
           <td>THÀNH TIỀN</td>
-          <td>' . number_format($bill[1], 0, ',', '.') . 'đ</td>
-        </tr>';
-        ?>
+          <td>' .
+          number_format($bill[1], 0, ',', '.') .
+          'đ</td>
+        </tr>'; ?>
       </table>
     </div>
   </div>

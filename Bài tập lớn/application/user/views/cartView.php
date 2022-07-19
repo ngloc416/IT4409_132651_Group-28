@@ -1,3 +1,5 @@
+<?php
+session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,9 +31,9 @@
           </li>
         </ul>
         <?php
-        include_once("../controllers/cartController.php");
-        $controller = new cartController();
-        $bill = $controller->showBill();
+        include_once '../controllers/cartController.php';
+        $cartController = new cartController();
+        $bill = $cartController->showBill();
         echo '<p>(' . $bill[0] . ')</p>';
         ?>
       </div>
@@ -56,26 +58,53 @@
           <th></th>
         </tr>
         <?php
-        $list = $controller->showList();
+        $list = $cartController->showList();
         for ($i = 0; $i < count($list); $i++) {
           echo '<tr>
-            <td>' . $list[$i]->name . '</td>
+            <td>' .
+            $list[$i]->name .
+            '</td>
             <td>
               <div class="cart-content-left-product-price">
-                <p>' . number_format($list[$i]->new_price, 0, ',', '.') . 'đ / ' . $list[$i]->unit . '</p>
+                <p>';
+          if ($list[$i]->new_price == null) {
+            echo number_format($list[$i]->price, 0, ',', '.');
+          } else {
+            echo number_format($list[$i]->new_price, 0, ',', '.');
+          }
+          echo 'đ / ' .
+            $list[$i]->unit .
+            ' kg</p>
               </div>
               <div class="cart-content-left-product-old-price">
-                <p>' . number_format($list[$i]->price, 0, ',', '.') . 'đ / ' . $list[$i]->unit . '</p>
+                <p>';
+          if ($list[$i]->new_price == null) {
+            echo '*';
+          } else {
+            echo number_format($list[$i]->price, 0, ',', '.') .
+              'đ / ' .
+              $list[$i]->unit .
+              ' kg';
+          }
+          echo '</p>
               </div>
             </td>
             <td>
-              <p>' . $list[$i]->qty . '</p>
+              <p>' .
+            $list[$i]->qty .
+            '</p>
             </td>
             <td>
-              <p>' . number_format($list[$i]->sum, 0, ',', '.') . 'đ</p>
+              <p>' .
+            number_format($list[$i]->sum, 0, ',', '.') .
+            'đ</p>
             </td>
             <td>
-            <a id="delete' . $list[$i]->id . '" href="" onclick="ask(' . $list[$i]->id . ')"><button>Xóa</button></a>
+            <a id="delete' .
+            $list[$i]->id .
+            '" href="" onclick="ask(' .
+            $list[$i]->id .
+            ')"><button>Xóa</button></a>
             </td>
             </tr>';
         }
@@ -88,8 +117,8 @@
         }
         }
         </script>';
-        if (isset($_GET['id']) && $_GET['id'] != NULL) {
-          $controller->delete($_GET['id']);
+        if (isset($_GET['id']) && $_GET['id'] != null) {
+          $cartController->delete($_GET['id']);
         }
         ?>
       </table>
@@ -99,29 +128,28 @@
         <tr>
           <th colspan="2">TỔNG TIỀN GIỎ HÀNG</th>
         </tr>
-        <?php
-        echo
-        '<tr>
+        <?php echo '<tr>
           <td>TỔNG SẢN PHẨM</td>
-          <td>' . $bill[0] . '</td>
+          <td>' .
+          $bill[0] .
+          '</td>
         </tr>
         <tr>
           <td>THÀNH TIỀN</td>
-          <td>' . number_format($bill[1], 0, ',', '.') . 'đ</td>
+          <td>' .
+          number_format($bill[1], 0, ',', '.') .
+          'đ</td>
         </tr>
         <tr>
           <td>TẠM TÍNH</td>
-          <td>' . number_format($bill[1], 0, ',', '.') . 'đ</td>
-        </tr>';
-        ?>
+          <td>' .
+          number_format($bill[1], 0, ',', '.') .
+          'đ</td>
+        </tr>'; ?>
       </table>
       <div class="cart-content-right-button">
-        <form action="listProductView.php">
-          <button>TIẾP TỤC MUA HÀNG</button>
-        </form>
-        <form action="payView.php">
-          <button>THANH TOÁN</button>
-        </form>
+        <a href="listProductView.php"><button>TIẾP TỤC MUA HÀNG</button></a>
+        <a href="payView.php"><button>THANH TOÁN</button></a>
       </div>
     </div>
   </div>

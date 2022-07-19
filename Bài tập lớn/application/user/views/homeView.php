@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['value'])) $_SESSION['value'] = 0;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,7 +34,7 @@
           </li>
         </ul>
         <?php
-        include_once("../controllers/cartController.php");
+        include_once '../controllers/cartController.php';
         $controller = new cartController();
         $bill = $controller->showBill();
         echo '<p>(' . $bill[0] . ')</p>';
@@ -64,85 +69,126 @@
 
   <div class="product-container">
     <?php
-    include_once("../controllers/homeController.php");
+    include_once '../controllers/homeController.php';
     $listProductController = new homeController();
     $list = $listProductController->getNewList();
 
     for ($i = 0; $i < count($list); $i++) {
       echo '<div class="product-item">
-            <a href="productView.php?id=' . $list[$i]->id . '"><img src="../../../' . $list[$i]->image[0] . '" alt="Sản phẩm ' . $list[$i]->id . '" /></a>
-            <a href="">
-            <p class="name">' . $list[$i]->name . ' (' . $list[$i]->unit . 'kg)</p>
+            <a href="productView.php?id=' .
+        $list[$i]->id .
+        '"><img src="../../../' .
+        $list[$i]->image[0] .
+        '" alt="Sản phẩm ' .
+        $list[$i]->id .
+        '" /></a>
+            <a href="productView.php?id=' .
+        $list[$i]->id .
+        '">
+            <p class="name">' .
+        $list[$i]->name .
+        ' (' .
+        $list[$i]->unit .
+        'kg)</p>
             </a>
             <p class="price">';
-      if ($list[$i]->newprice == NULL) echo $list[$i]->price;
-      else echo $list[$i]->newprice;
-      echo 'đ / ' . $list[$i]->unit . ' kg</p>
+      if ($list[$i]->newprice == null) {
+        echo $list[$i]->price;
+      } else {
+        echo $list[$i]->newprice;
+      }
+      echo 'đ / ' .
+        $list[$i]->unit .
+        ' kg</p>
             <p class="old-price">';
-      if ($list[$i]->newprice == NULL) echo '*';
-      else echo $list[$i]->price . 'đ / ' . $list[$i]->unit . ' kg';
+      if ($list[$i]->newprice == null) {
+        echo '*';
+      } else {
+        echo $list[$i]->price . 'đ / ' . $list[$i]->unit . ' kg';
+      }
       echo '</p>
             </div>';
     }
     ?>
+  </div>
 
-    <!-------------------------best seller-------------------------->
-    <h2 class="list-title">BEST SELLER</h2>
-    <div class="product-container">
-      <?php
-      include_once("../controllers/homeController.php");
-      $listProductController = new homeController();
-      $list = $listProductController->getHotList();
+  <!-------------------------best seller-------------------------->
+  <h2 class="list-title">BEST SELLER</h2>
+  <div class="product-container">
+    <?php
+    include_once '../controllers/homeController.php';
+    $listProductController = new homeController();
+    $list = $listProductController->getHotList();
 
-      for ($i = 0; $i < count($list); $i++) {
-        echo '<div class="product-item">
-            <a href="productView.php?id=' . $list[$i]->id . '"><img src="../../../' . $list[$i]->image[0] . '" alt="Sản phẩm ' . $list[$i]->id . '" /></a>
-            <a href="productView.php?id=' . $list[$i]->id . '">
-            <p class="name">' . $list[$i]->name . ' (' . $list[$i]->unit . 'kg)</p>
+    for ($i = 0; $i < count($list); $i++) {
+      echo '<div class="product-item">
+            <a href="productView.php?id=' .
+        $list[$i]->id .
+        '"><img src="../../../' .
+        $list[$i]->image[0] .
+        '" alt="Sản phẩm ' .
+        $list[$i]->id .
+        '" /></a>
+            <a href="productView.php?id=' .
+        $list[$i]->id .
+        '">
+            <p class="name">' .
+        $list[$i]->name .
+        ' (' .
+        $list[$i]->unit .
+        'kg)</p>
             </a>
             <p class="price">';
-        if ($list[$i]->newprice == NULL) echo $list[$i]->price;
-        else echo $list[$i]->newprice;
-        echo 'đ / ' . $list[$i]->unit . ' kg</p>
-            <p class="old-price">';
-        if ($list[$i]->newprice == NULL) echo '*';
-        else echo $list[$i]->price . 'đ / ' . $list[$i]->unit . ' kg';
-        echo '</p>
-            </div>';
+      if ($list[$i]->newprice == null) {
+        echo $list[$i]->price;
+      } else {
+        echo $list[$i]->newprice;
       }
-      ?>
-    </div>
-    <!-------------------------tip---------------------------------->
-    <div class="tip">
-      <h2>Lợi ích khi ăn hoa quả</h2>
-      <br />
-      <p>
-        " Ăn hoa quả là một phần của chế độ ăn uống lành mạnh. Ăn các loại thực
-        phẩm như trái cây có hàm lượng calo thấp hơn thay vì một số thực phẩm
-        khác có hàm lượng calo cao hơn có thể hữu ích trong việc giúp giảm lượng
-        calo tiêu thụ, từ đó giúp người dùng kiểm soát cân nặng. Ăn một chế độ
-        ăn nhiều rau và trái cây có thể làm giảm nguy cơ mắc bệnh tim, bao gồm
-        đau tim và đột quỵ. Ăn một chế độ ăn nhiều rau và trái cây có thể bảo vệ
-        cơ thể chống lại một số loại ung thư. Trái cây có thể giúp tăng lượng
-        chất xơ và kali, là những chất dinh dưỡng quan trọng mà nhiều người dùng
-        không có đủ trong chế độ ăn uống của họ. "
-      </p>
-    </div>
-    <!-------------------------footer------------------------------->
-    <footer>
-      <p class="info">
-        Địa chỉ: Số 50 Thái Thịnh, Đống Đa, Hà Nội <br />
-        Điện thoại: 0123456789 <br />
-        Email: freshfruit6789@gmail.com
-      </p>
+      echo 'đ / ' .
+        $list[$i]->unit .
+        ' kg</p>
+            <p class="old-price">';
+      if ($list[$i]->newprice == null) {
+        echo '*';
+      } else {
+        echo $list[$i]->price . 'đ / ' . $list[$i]->unit . ' kg';
+      }
+      echo '</p>
+            </div>';
+    }
+    ?>
+  </div>
+  <!-------------------------tip---------------------------------->
+  <div class="tip">
+    <h2>Lợi ích khi ăn hoa quả</h2>
+    <br />
+    <p>
+      " Ăn hoa quả là một phần của chế độ ăn uống lành mạnh. Ăn các loại thực
+      phẩm như trái cây có hàm lượng calo thấp hơn thay vì một số thực phẩm
+      khác có hàm lượng calo cao hơn có thể hữu ích trong việc giúp giảm lượng
+      calo tiêu thụ, từ đó giúp người dùng kiểm soát cân nặng. Ăn một chế độ
+      ăn nhiều rau và trái cây có thể làm giảm nguy cơ mắc bệnh tim, bao gồm
+      đau tim và đột quỵ. Ăn một chế độ ăn nhiều rau và trái cây có thể bảo vệ
+      cơ thể chống lại một số loại ung thư. Trái cây có thể giúp tăng lượng
+      chất xơ và kali, là những chất dinh dưỡng quan trọng mà nhiều người dùng
+      không có đủ trong chế độ ăn uống của họ. "
+    </p>
+  </div>
+  <!-------------------------footer------------------------------->
+  <footer>
+    <p class="info">
+      Địa chỉ: Số 50 Thái Thịnh, Đống Đa, Hà Nội <br />
+      Điện thoại: 0123456789 <br />
+      Email: freshfruit6789@gmail.com
+    </p>
 
-      <div class="contact">
-        <a href="https://www.facebook.com/"><img src="../../../public/img/facebook.png" alt="facebook" /></a>
-        <a href="https://www.instagram.com/"><img src="../../../public/img/instagram.png" alt="instagram" /></a>
-        <a href="https://www.youtube.com/"><img src="../../../public/img/youtube.png" alt="youtube" /></a>
-      </div>
-    </footer>
-    <script src="../../../public/js/homeScript.js"></script>
+    <div class="contact">
+      <a href="https://www.facebook.com/"><img src="../../../public/img/facebook.png" alt="facebook" /></a>
+      <a href="https://www.instagram.com/"><img src="../../../public/img/instagram.png" alt="instagram" /></a>
+      <a href="https://www.youtube.com/"><img src="../../../public/img/youtube.png" alt="youtube" /></a>
+    </div>
+  </footer>
+  <script src="../../../public/js/homeScript.js"></script>
 </body>
 
 </html>
