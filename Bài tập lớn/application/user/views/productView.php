@@ -48,28 +48,42 @@
   </div>
   <!-------------------------product content---------------------->
   <div class="product-content">
-    <div class="product-content-left">
+    <?php
+    $pid = $_GET['id'];
+    include_once "../controllers/productController.php";
+    $productController = new productController();
+    $product = $productController->getDetailProduct($pid);
+
+    echo '    <div class="product-content-left">
       <div class="product-content-left-big-img">
-        <img src="../../../public/img/dau-tay.jpg" alt="" />
-      </div>
-      <div class="product-content-left-small-img">
-        <img src="../../../public/img/dau-tay.jpg" alt="" />
-        <img src="../../../public/img/about-us-2.jpg" alt="" />
-        <img src="../../../public/img/dau-tay.jpg" alt="" />
-      </div>
-    </div>
+        <img src="../../../' . $product->image[0] . '" alt="" />
+      </div>';
+    if (count($product->image) > 1) {
+      echo '<div class="product-content-left-small-img">';
+      for ($i = 1; $i < count($product->image); $i++) {
+        echo '<img src="../../../' . $product->image[$i] . '" alt="" /> ';
+      }
+      echo '</div>';
+    }
+    echo '</div>
     <div class="product-content-right">
       <div class="product-content-right-product-name">
-        <h2>Dâu tây</h2>
+        <h2>' . $product->name . '</h2>
       </div>
       <div class="product-content-right-product-price">
-        <p>180.000đ / 0,5 kg</p>
+        <p>';
+    if ($product->newprice == NULL) echo $product->price;
+    else echo $product->newprice;
+    echo 'đ / ' . $product->unit . ' kg</p>
       </div>
       <div class="product-content-right-product-old-price">
-        <p>200.000đ / 0,5 kg</p>
+        <p>';
+    if ($product->newprice == NULL) echo '*';
+    else echo $product->price . 'đ / ' . $product->unit . ' kg';
+    echo '</p>
       </div>
       <div class="product-content-right-product-status">
-        <p>Tình trạng: Còn 55 sản phẩm</p>
+        <p>Tình trạng: Còn ' . $product->amount . ' sản phẩm</p>
       </div>
       <div class="product-content-right-quantity">
         <label for="qty">Số lượng:</label>
@@ -78,7 +92,8 @@
       <div class="product-content-right-button">
         <button>Thêm vào giỏ hàng</button>
       </div>
-    </div>
+    </div>';
+    ?>
   </div>
   <!-------------------------tip---------------------------------->
   <div class="tip">

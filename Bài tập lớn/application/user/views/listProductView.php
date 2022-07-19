@@ -49,94 +49,31 @@
   <!-------------------------product------------------------------>
   <br /><br /><br /><br /><br /><br /><br />
   <div class="product-container">
-    <div class="product-item">
-      <a href=""><img src="../../../public/img/dau-tay.jpg" alt="Sản phẩm 1" /></a>
-      <a href="">
-        <p class="name">Dâu tây (0,5kg)</p>
-      </a>
-      <p class="price">200.000đ / 0,5 kg</p>
-      <p class="old-price">*</p>
-    </div>
-    <div class="product-item">
-      <a href=""><img src="../../../public/img/dau-tay.jpg" alt="Sản phẩm 1" /></a>
-      <a href="">
-        <p class="name">Dâu tây (0,5kg)</p>
-      </a>
-      <p class="price">180.000đ / 0,5 kg</p>
-      <p class="old-price">200.000đ / 0,5 kg</p>
-    </div>
-    <div class="product-item">
-      <a href=""><img src="../../../public/img/dau-tay.jpg" alt="Sản phẩm 1" /></a>
-      <a href="">
-        <p class="name">Dâu tây (0,5kg)</p>
-      </a>
-      <p class="price">200.000đ / 0,5 kg</p>
-      <p class="old-price">*</p>
-    </div>
-    <div class="product-item">
-      <a href=""><img src="../../../public/img/dau-tay.jpg" alt="Sản phẩm 1" /></a>
-      <a href="">
-        <p class="name">Dâu tây (0,5kg)</p>
-      </a>
-      <p class="price">180.000đ / 0,5 kg</p>
-      <p class="old-price">200.000đ / 0,5 kg</p>
-    </div>
-    <div class="product-item">
-      <a href=""><img src="../../../public/img/dau-tay.jpg" alt="Sản phẩm 1" /></a>
-      <a href="">
-        <p class="name">Dâu tây (0,5kg)</p>
-      </a>
-      <p class="price">200.000đ / 0,5 kg</p>
-      <p class="old-price">*</p>
-    </div>
-    <div class="product-item">
-      <a href=""><img src="../../../public/img/dau-tay.jpg" alt="Sản phẩm 1" /></a>
-      <a href="">
-        <p class="name">Dâu tây (0,5kg)</p>
-      </a>
-      <p class="price">200.000đ / 0,5 kg</p>
-      <p class="old-price">*</p>
-    </div>
-    <div class="product-item">
-      <a href=""><img src="../../../public/img/dau-tay.jpg" alt="Sản phẩm 1" /></a>
-      <a href="">
-        <p class="name">Dâu tây (0,5kg)</p>
-      </a>
-      <p class="price">200.000đ / 0,5 kg</p>
-      <p class="old-price">*</p>
-    </div>
-    <div class="product-item">
-      <a href=""><img src="../../../public/img/dau-tay.jpg" alt="Sản phẩm 1" /></a>
-      <a href="">
-        <p class="name">Dâu tây (0,5kg)</p>
-      </a>
-      <p class="price">180.000đ / 0,5 kg</p>
-      <p class="old-price">200.000đ / 0,5 kg</p>
-    </div>
-    <div class="product-item">
-      <a href=""><img src="../../../public/img/dau-tay.jpg" alt="Sản phẩm 1" /></a>
-      <a href="">
-        <p class="name">Dâu tây (0,5kg)</p>
-      </a>
-      <p class="price">200.000đ / 0,5 kg</p>
-      <p class="old-price">*</p>
-    </div>
+
+    <?php
+    include_once("../controllers/listProductController.php");
+    $listProductController = new listProductController();
+    $list = $listProductController->getProductList();
+
+    for ($i = 0; $i < count($list); $i++) {
+      echo '<div class="product-item">
+            <a href="productView.php?id=' . $list[$i]->id . '"><img src="../../../' . $list[$i]->image[0] . '" alt="Sản phẩm ' . $list[$i]->id . '" /></a>
+            <a href="productView.php?id=' . $list[$i]->id . '">
+            <p class="name">' . $list[$i]->name . ' (' . $list[$i]->unit . 'kg)</p>
+            </a>
+            <p class="price">';
+      if ($list[$i]->newprice == NULL) echo $list[$i]->price;
+      else echo $list[$i]->newprice;
+      echo 'đ / ' . $list[$i]->unit . ' kg</p>
+            <p class="old-price">';
+      if ($list[$i]->newprice == NULL) echo '*';
+      else echo $list[$i]->price . 'đ / ' . $list[$i]->unit . ' kg';
+      echo '</p>
+            </div>';
+    }
+    ?>
   </div>
 
-  <div class="page">
-    <a href="">
-      <p>Preview</p>
-    </a>
-    <a href="">
-      <p>1</p>
-    </a>
-    <a href="">
-      <p>2</p>
-    </a>
-    <a href="">
-      <p>Next</p>
-    </a>
-  </div>
   <!-------------------------tip---------------------------------->
   <div class="tip">
     <h2>Lợi ích khi ăn hoa quả</h2>
