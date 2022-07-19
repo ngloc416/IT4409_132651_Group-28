@@ -64,7 +64,7 @@ session_start(); ?>
       </div>';
     if (count($product->image) > 1) {
       echo '<div class="product-content-left-small-img">';
-      for ($i = 1; $i < count($product->image); $i++) {
+      for ($i = 0; $i < count($product->image); $i++) {
         echo '<img src="../../../' . $product->image[$i] . '" alt="" /> ';
       }
       echo '</div>';
