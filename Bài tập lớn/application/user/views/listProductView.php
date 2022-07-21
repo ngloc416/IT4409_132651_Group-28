@@ -77,9 +77,9 @@ session_start(); ?>
             </a>
             <p class="price">';
       if ($list[$i]->newprice == null) {
-        echo $list[$i]->price;
+        echo number_format($list[$i]->price, 0, ',', '.');
       } else {
-        echo $list[$i]->newprice;
+        echo number_format($list[$i]->newprice, 0, ',', '.');
       }
       echo 'đ / ' .
         $list[$i]->unit .
@@ -88,7 +88,10 @@ session_start(); ?>
       if ($list[$i]->newprice == null) {
         echo '*';
       } else {
-        echo $list[$i]->price . 'đ / ' . $list[$i]->unit . ' kg';
+        echo number_format($list[$i]->price, 0, ',', '.') .
+          'đ / ' .
+          $list[$i]->unit .
+          ' kg';
       }
       echo '</p>
             </div>';

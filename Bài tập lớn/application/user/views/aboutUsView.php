@@ -95,6 +95,45 @@ session_start(); ?>
         </p>
       </div>
     </div>
+    <div class="about-us-content-2">
+      <img src="../../../public/img/about-us-1.jpg" alt="About Us 1" />
+      <div class="about-us-intro">
+        <h3>Cửa hàng</h3>
+        <h4>Rộng rãi, thoáng mát</h4>
+        <p>
+          Cửa hàng chúng tôi được xây dựng tại mặt đường chính với diện tích
+          rộng lớn, được trang trí với không gian thoáng mát nhiều cây xanh.
+          Khi quý khách bước vào cửa hàng sẽ được tận hưởng một không gian
+          thoáng mát sảng khoái khi mua hàng.
+        </p>
+      </div>
+    </div>
+    <div class="about-us-content-2">
+      <img src="../../../public/img/about-us-2.jpg" alt="About Us 2" />
+      <div class="about-us-intro">
+        <h3>Sản phẩm</h3>
+        <h4>Tươi ngon, An toàn</h4>
+        <p>
+          Sản phẩm của chúng tôi được nhập từ các tỉnh thành trên cả nước, hoa
+          quả được nhập và lựa chọn kỹ càng tại chính nông trại vì vậy mà độ
+          tươi và ngon của hoa quả rất đảm bảo. Sản phẩm của chúng tôi được
+          đảm bảo kiểm định 100% không sử dụng thuốc bảo quản.
+        </p>
+      </div>
+    </div>
+    <div class="about-us-content-2">
+      <img src="../../../public/img/about-us-3.jpg" alt="About Us 3" />
+      <div class="about-us-intro">
+        <h3>Phục vụ</h3>
+        <h4>Tận tình, chu đáo</h4>
+        <p>
+          Khi quý khách hàng đến cửa hàng chúng tôi, quý khách sẽ được nhân
+          viên phụ vụ tận tình chu đáo, nếu quý khách ở xa không đến trực tiếp
+          cửa hàng, quý khách có thể đặt hàng tại trang web, chúng tôi sẽ liên
+          hệ trực tiếp để tư vấn cho quý khách.
+        </p>
+      </div>
+    </div>
   </div>
   <!-------------------------tip---------------------------------->
   <div class="tip">

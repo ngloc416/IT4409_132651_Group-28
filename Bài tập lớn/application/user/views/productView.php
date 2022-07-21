@@ -79,9 +79,9 @@ session_start(); ?>
       <div class="product-content-right-product-price">
         <p>';
     if ($product->newprice == null) {
-      echo $product->price;
+      echo number_format($product->price, 0, ',', '.');
     } else {
-      echo $product->newprice;
+      echo number_format($product->newprice, 0, ',', '.');
     }
     echo 'đ / ' .
       $product->unit .
@@ -92,7 +92,10 @@ session_start(); ?>
     if ($product->newprice == null) {
       echo '*';
     } else {
-      echo $product->price . 'đ / ' . $product->unit . ' kg';
+      echo number_format($product->price, 0, ',', '.') .
+        'đ / ' .
+        $product->unit .
+        ' kg';
     }
     echo '</p>
       </div>

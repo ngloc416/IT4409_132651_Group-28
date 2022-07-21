@@ -78,7 +78,7 @@ class payController
         $order_id,
         $customer->customer_id,
         $total,
-        'dang xu ly',
+        'đang xử lý',
         date('Y-m-d H:s:i')
       );
       if (!empty($order)) {

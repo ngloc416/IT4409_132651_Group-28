@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th7 19, 2022 lúc 09:11 PM
+-- Thời gian đã tạo: Th7 20, 2022 lúc 04:04 PM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 8.0.12
 
@@ -43,8 +43,9 @@ CREATE TABLE `donhang` (
 --
 
 INSERT INTO `donhang` (`order_id`, `customer_id`, `total`, `status`, `date`) VALUES
-(1, 1, 199000, 'dang xu ly', '2022-07-19'),
-(2, 2, 920000, 'dang xu ly', '2022-07-19');
+(1, 1, 199000, 'hoàn thành', '2022-07-19'),
+(2, 2, 920000, 'đang xử lý', '2022-07-19'),
+(3, 3, 321000, 'đang xử lý', '2022-07-20');
 
 -- --------------------------------------------------------
 
@@ -64,9 +65,12 @@ CREATE TABLE `donhang_sanpham` (
 --
 
 INSERT INTO `donhang_sanpham` (`order_id`, `product_id`, `qty`) VALUES
+(1, 2, 2),
 (1, 5, 3),
 (1, 7, 2),
-(2, 8, 4);
+(2, 8, 4),
+(3, 1, 5),
+(3, 7, 3);
 
 -- --------------------------------------------------------
 
@@ -135,12 +139,12 @@ CREATE TABLE `sanpham` (
 
 INSERT INTO `sanpham` (`product_id`, `name`, `price`, `newprice`, `date`, `amount`, `sold`, `unit`) VALUES
 (1, 'Xoài hạt lép', 50000, 45000, '2022-07-19', 100, 30, '1'),
-(2, 'Dưa lưới', 68000, NULL, '2022-07-18', 80, 13, '1'),
+(2, 'Dưa lưới', 68000, NULL, '2022-07-18', 72, 21, '1'),
 (3, 'Ổi', 50000, 42000, '2022-07-18', 95, 22, '1'),
 (4, 'Cam ', 38000, NULL, '2022-07-16', 44, 11, '1'),
-(5, 'Thanh long ', 50000, 45000, '2022-07-19', 46, 20, '1'),
+(5, 'Thanh long ', 50000, 45000, '2022-07-19', 34, 32, '1'),
 (6, 'Bưởi', 65000, NULL, '2022-07-18', 84, 61, '1'),
-(7, 'Dưa hấu', 35000, 32000, '2022-07-16', 57, 23, '1'),
+(7, 'Dưa hấu', 35000, 32000, '2022-07-16', 49, 31, '1'),
 (8, 'Dâu tây', 250000, 230000, '2022-07-19', 95, 32, '1');
 
 -- --------------------------------------------------------
@@ -155,6 +159,13 @@ CREATE TABLE `taikhoan` (
   `username` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `pass` varchar(20) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `taikhoan`
+--
+
+INSERT INTO `taikhoan` (`id`, `username`, `pass`) VALUES
+(1, 'admin', 'admin');
 
 -- --------------------------------------------------------
 
@@ -179,7 +190,8 @@ CREATE TABLE `thongtinkhach` (
 
 INSERT INTO `thongtinkhach` (`customer_id`, `customername`, `address`, `phone`, `email`, `ghichu`, `hinhthucthanhtoan`) VALUES
 (1, 'Nguyễn Đình Lộc', 'Hà Nội', '0971596416', 'nguyendinhloc1102001@gmail.com', '', 'Tiền mặt'),
-(2, 'Vũ Hoàng Long', 'Hà Nội', '0123456789', '', '', 'Tiền mặt');
+(2, 'Vũ Hoàng Long', 'Hà Nội', '0123456789', '', '', 'Tiền mặt'),
+(3, 'Nguyễn Đức Thắng', 'Hà Nội', '0147258369', 'nguyendinhloc1102001@gmail.com', '', 'Chuyển khoản');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -245,7 +257,7 @@ ALTER TABLE `sanpham`
 -- AUTO_INCREMENT cho bảng `taikhoan`
 --
 ALTER TABLE `taikhoan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `thongtinkhach`
